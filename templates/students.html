@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item active">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▦</span>
+                QR Codes
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▣</span>
+                Scan QR
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="/login" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="dashboard-label">
+                    ATTENDANCE MANAGEMENT
+                </p>
+
+                <h1>Students</h1>
+
+                <p class="dashboard-subtitle">
+                    Manage registered students and their information.
+                </p>
+            </div>
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STUDENT TOOLBAR -->
+
+        <section class="student-toolbar">
+
+            <div class="student-search">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search students..."
+                >
+
+            </div>
+
+
+            <a href="#" class="add-student-btn">
+                + Add Student
+            </a>
+
+        </section>
+
+
+        <!-- STUDENTS TABLE -->
+
+        <section class="students-card">
+
+            <div class="students-card-header">
+
+                <div>
+                    <h2>All Students</h2>
+
+                    <p>
+                        120 registered students
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="students-table-wrapper">
+
+                <table class="students-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Student</th>
+                            <th>Roll Number</th>
+                            <th>Department</th>
+                            <th>Semester</th>
+                            <th>Attendance</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <div class="student-info">
+
+                                    <div class="student-avatar">
+                                        RK
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            Rahul Kumar
+                                        </strong>
+
+                                        <span>
+                                            rahul@example.com
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>CS001</td>
+
+                            <td>Computer Science</td>
+
+                            <td>5th</td>
+
+                            <td>
+                                <strong>92%</strong>
+                            </td>
+
+                            <td>
+                                <span class="student-status active-status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="table-actions">
+
+                                    <a href="#" title="View">
+                                        👁
+                                    </a>
+
+                                    <a href="#" title="Edit">
+                                        ✎
+                                    </a>
+
+                                    <a href="#" title="Delete">
+                                        🗑
+                                    </a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <div class="student-info">
+
+                                    <div class="student-avatar">
+                                        PS
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            Priya Sharma
+                                        </strong>
+
+                                        <span>
+                                            priya@example.com
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>CS002</td>
+
+                            <td>Computer Science</td>
+
+                            <td>5th</td>
+
+                            <td>
+                                <strong>88%</strong>
+                            </td>
+
+                            <td>
+                                <span class="student-status active-status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="table-actions">
+
+                                    <a href="#">👁</a>
+                                    <a href="#">✎</a>
+                                    <a href="#">🗑</a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <div class="student-info">
+
+                                    <div class="student-avatar">
+                                        AR
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            Arjun R
+                                        </strong>
+
+                                        <span>
+                                            arjun@example.com
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>CS003</td>
+
+                            <td>Computer Science</td>
+
+                            <td>5th</td>
+
+                            <td>
+                                <strong>76%</strong>
+                            </td>
+
+                            <td>
+                                <span class="student-status active-status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="table-actions">
+
+                                    <a href="#">👁</a>
+                                    <a href="#">✎</a>
+                                    <a href="#">🗑</a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <div class="student-info">
+
+                                    <div class="student-avatar">
+                                        SM
+                                    </div>
+
+                                    <div>
+                                        <strong>
+                                            Sneha M
+                                        </strong>
+
+                                        <span>
+                                            sneha@example.com
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>CS004</td>
+
+                            <td>Computer Science</td>
+
+                            <td>5th</td>
+
+                            <td>
+                                <strong>95%</strong>
+                            </td>
+
+                            <td>
+                                <span class="student-status active-status">
+                                    Active
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="table-actions">
+
+                                    <a href="#">👁</a>
+                                    <a href="#">✎</a>
+                                    <a href="#">🗑</a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="pagination">
+
+                <span>
+                    Showing 1–4 of 120 students
+                </span>
+
+                <div>
+
+                    <button>‹</button>
+                    <button class="current-page">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>›</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
