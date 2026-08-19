@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Start Attendance | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="/qr-codes" class="nav-item active">
+                <span>▦</span>
+                Start Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="/login" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="dashboard-label">
+                    ATTENDANCE MANAGEMENT
+                </p>
+
+                <h1>Start Attendance</h1>
+
+                <p class="dashboard-subtitle">
+                    Create an attendance session and generate one QR code.
+                </p>
+
+            </div>
+
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- SESSION SETUP -->
+
+        <section class="attendance-session-card">
+
+            <div class="session-header">
+
+                <div class="session-icon">
+                    QR
+                </div>
+
+                <div>
+
+                    <h2>Create Attendance Session</h2>
+
+                    <p>
+                        Students will scan one QR code to mark their attendance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form class="session-form">
+
+                <div class="session-form-grid">
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-field">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <select id="subject" name="subject">
+
+                            <option value="">
+                                Select subject
+                            </option>
+
+                            <option value="dsa">
+                                Data Structures & Algorithms
+                            </option>
+
+                            <option value="dbms">
+                                Database Management System
+                            </option>
+
+                            <option value="python">
+                                Python Programming
+                            </option>
+
+                            <option value="java">
+                                Java Programming
+                            </option>
+
+                            <option value="os">
+                                Operating Systems
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SEMESTER -->
+
+                    <div class="form-field">
+
+                        <label for="semester">
+                            Semester
+                        </label>
+
+                        <select id="semester" name="semester">
+
+                            <option value="">
+                                Select semester
+                            </option>
+
+                            <option value="1">1st Semester</option>
+                            <option value="2">2nd Semester</option>
+                            <option value="3">3rd Semester</option>
+                            <option value="4">4th Semester</option>
+                            <option value="5">5th Semester</option>
+                            <option value="6">6th Semester</option>
+                            <option value="7">7th Semester</option>
+                            <option value="8">8th Semester</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SECTION -->
+
+                    <div class="form-field">
+
+                        <label for="section">
+                            Section
+                        </label>
+
+                        <select id="section" name="section">
+
+                            <option value="">
+                                Select section
+                            </option>
+
+                            <option value="A">
+                                Section A
+                            </option>
+
+                            <option value="B">
+                                Section B
+                            </option>
+
+                            <option value="C">
+                                Section C
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DURATION -->
+
+                    <div class="form-field">
+
+                        <label for="duration">
+                            QR Validity
+                        </label>
+
+                        <select id="duration" name="duration">
+
+                            <option value="5">
+                                5 minutes
+                            </option>
+
+                            <option value="10" selected>
+                                10 minutes
+                            </option>
+
+                            <option value="15">
+                                15 minutes
+                            </option>
+
+                            <option value="30">
+                                30 minutes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFO -->
+
+                <div class="session-info">
+
+                    <div class="info-icon">
+                        i
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            How it works
+                        </strong>
+
+                        <p>
+                            Start the session to generate a unique QR code.
+                            Students scan the QR with their phones and complete
+                            the attendance verification.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <div class="session-actions">
+
+                    <a href="/dashboard" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <a
+                    href="/active-session"
+                    class="start-session-btn"
+                    >
+                        Start Attendance
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

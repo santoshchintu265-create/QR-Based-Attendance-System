@@ -28,5 +28,15 @@ def add_student():
     return render_template("add_student.html")
 
 
+@app.route("/qr-codes")
+def qr_codes():
+    return render_template("qr_codes.html")
+
+
+@app.route("/active-session")
+def active_session():
+    return render_template("active_session.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

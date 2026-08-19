@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Active Attendance | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="/qr-codes" class="nav-item active">
+                <span>▦</span>
+                Start Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="/login" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="dashboard-label">
+                    LIVE ATTENDANCE
+                </p>
+
+                <h1>Attendance Session</h1>
+
+                <p class="dashboard-subtitle">
+                    Students can scan the QR code below to mark attendance.
+                </p>
+
+            </div>
+
+            <div class="session-live-badge">
+                <span></span>
+                LIVE
+            </div>
+
+        </header>
+
+
+        <!-- SESSION -->
+
+        <section class="active-session-layout">
+
+            <!-- QR -->
+
+            <div class="active-qr-card">
+
+                <div class="active-qr-header">
+
+                    <h2>Scan to Mark Attendance</h2>
+
+                    <p>
+                        Scan this QR code using your phone camera.
+                    </p>
+
+                </div>
+
+
+                <div class="large-qr-container">
+
+                    <div class="large-qr-placeholder">
+
+                        <div class="large-qr-pattern">
+
+                            <div class="large-qr-corner top-left"></div>
+
+                            <div class="large-qr-corner top-right"></div>
+
+                            <div class="large-qr-corner bottom-left"></div>
+
+                            <div class="large-qr-center">
+                                QR
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="qr-expiry">
+
+                    <span>QR expires in</span>
+
+                    <strong>
+                        09:42
+                    </strong>
+
+                </div>
+
+
+                <div class="session-id">
+
+                    Session ID:
+                    <strong>SES-2026-001</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- SESSION INFO -->
+
+            <div class="active-session-info">
+
+                <div class="session-details-card">
+
+                    <h2>Session Details</h2>
+
+
+                    <div class="detail-item">
+
+                        <span>Subject</span>
+
+                        <strong>
+                            Data Structures & Algorithms
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Semester</span>
+
+                        <strong>
+                            5th Semester
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Section</span>
+
+                        <strong>
+                            Section A
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Started At</span>
+
+                        <strong>
+                            10:30 AM
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Duration</span>
+
+                        <strong>
+                            10 minutes
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LIVE COUNT -->
+
+                <div class="live-count-card">
+
+                    <div>
+
+                        <span>
+                            Attendance Marked
+                        </span>
+
+                        <strong>
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="count-icon">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <!-- END SESSION -->
+
+                <button class="end-session-btn">
+                    End Attendance Session
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
