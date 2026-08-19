@@ -1206,3 +1206,201 @@ footer {
     }
 
 }
+
+
+
+
+
+
+
+/* =========================
+   ADD STUDENT PAGE
+========================= */
+
+.student-form-card {
+    max-width: 1000px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.form-card-header {
+    padding: 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-card-header h2 {
+    font-size: 19px;
+
+    margin-bottom: 6px;
+}
+
+.form-card-header p {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.student-form {
+    padding: 25px;
+}
+
+.form-section {
+    padding-bottom: 28px;
+
+    margin-bottom: 28px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+
+    margin-bottom: 0;
+}
+
+.form-section h3 {
+    font-size: 15px;
+
+    margin-bottom: 20px;
+
+    color: #111827;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.form-field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: #111827;
+
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.form-field input::placeholder {
+    color: #9ca3af;
+}
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 5px;
+}
+
+.cancel-btn {
+    padding: 12px 20px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    color: #374151;
+
+    background: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.cancel-btn:hover {
+    background: #f9fafb;
+}
+
+.save-student-btn {
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.save-student-btn:hover {
+    background: #374151;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-form {
+        padding: 20px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn,
+    .save-student-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}

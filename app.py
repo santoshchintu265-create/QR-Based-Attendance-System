@@ -23,5 +23,10 @@ def students():
     return render_template("students.html")
 
 
+@app.route("/add-student")
+def add_student():
+    return render_template("add_student.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

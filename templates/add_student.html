@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item active">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▦</span>
+                QR Codes
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▣</span>
+                Scan QR
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="/login" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="dashboard-label">
+                    STUDENT MANAGEMENT
+                </p>
+
+                <h1>Add Student</h1>
+
+                <p class="dashboard-subtitle">
+                    Register a new student in the attendance system.
+                </p>
+
+            </div>
+
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- FORM CARD -->
+
+        <section class="student-form-card">
+
+            <div class="form-card-header">
+
+                <h2>Student Information</h2>
+
+                <p>
+                    Enter the student's details below.
+                </p>
+
+            </div>
+
+
+            <form class="student-form">
+
+                <!-- PERSONAL INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Personal Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-field">
+
+                            <label for="full_name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="full_name"
+                                name="full_name"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="roll_number">
+                                Roll Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="roll_number"
+                                name="roll_number"
+                                placeholder="Example: CS001"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="student@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACADEMIC INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Academic Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-field">
+
+                            <label for="department">
+                                Department
+                            </label>
+
+                            <select
+                                id="department"
+                                name="department"
+                                required
+                            >
+
+                                <option value="">
+                                    Select department
+                                </option>
+
+                                <option value="CSE">
+                                    Computer Science & Engineering
+                                </option>
+
+                                <option value="ECE">
+                                    Electronics & Communication
+                                </option>
+
+                                <option value="EEE">
+                                    Electrical & Electronics
+                                </option>
+
+                                <option value="ME">
+                                    Mechanical Engineering
+                                </option>
+
+                                <option value="CIVIL">
+                                    Civil Engineering
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="semester">
+                                Semester
+                            </label>
+
+                            <select
+                                id="semester"
+                                name="semester"
+                                required
+                            >
+
+                                <option value="">
+                                    Select semester
+                                </option>
+
+                                <option value="1">
+                                    1st Semester
+                                </option>
+
+                                <option value="2">
+                                    2nd Semester
+                                </option>
+
+                                <option value="3">
+                                    3rd Semester
+                                </option>
+
+                                <option value="4">
+                                    4th Semester
+                                </option>
+
+                                <option value="5">
+                                    5th Semester
+                                </option>
+
+                                <option value="6">
+                                    6th Semester
+                                </option>
+
+                                <option value="7">
+                                    7th Semester
+                                </option>
+
+                                <option value="8">
+                                    8th Semester
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="section">
+                                Section
+                            </label>
+
+                            <input
+                                type="text"
+                                id="section"
+                                name="section"
+                                placeholder="Example: A"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="academic_year">
+                                Academic Year
+                            </label>
+
+                            <input
+                                type="text"
+                                id="academic_year"
+                                name="academic_year"
+                                placeholder="Example: 2026-27"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="form-actions">
+
+                    <a href="/students" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="save-student-btn"
+                    >
+                        Add Student
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
