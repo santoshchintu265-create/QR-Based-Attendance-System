@@ -38,5 +38,10 @@ def active_session():
     return render_template("active_session.html")
 
 
+@app.route("/mark-attendance")
+def mark_attendance():
+    return render_template("mark_attendance.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

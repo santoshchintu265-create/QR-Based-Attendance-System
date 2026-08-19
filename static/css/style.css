@@ -2221,3 +2221,246 @@ footer {
     }
 
 }
+
+
+
+
+
+
+
+/* =========================
+   STUDENT ATTENDANCE PAGE
+========================= */
+
+.student-attendance-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    background: #f5f7fb;
+}
+
+.attendance-mobile-card {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 35px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+}
+
+.attendance-logo {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.attendance-page-header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.attendance-label {
+    margin-bottom: 10px;
+
+    color: #6b7280;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.attendance-page-header h1 {
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+}
+
+.attendance-page-header p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* SESSION INFO */
+
+.student-session-info {
+    padding: 18px;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    background: #f9fafb;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+}
+
+.session-subject {
+    margin-bottom: 7px;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+.session-class {
+    margin-bottom: 12px;
+
+    color: #6b7280;
+
+    font-size: 12px;
+}
+
+.session-time {
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+.session-time strong {
+    color: #111827;
+
+    font-size: 14px;
+}
+
+
+/* FORM */
+
+.attendance-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.confirm-attendance-btn {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.confirm-attendance-btn:hover {
+    background: #374151;
+}
+
+
+/* SECURITY */
+
+.attendance-security {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 22px;
+
+    padding: 13px;
+
+    background: #f9fafb;
+
+    border-radius: 8px;
+}
+
+.attendance-security span {
+    font-size: 13px;
+}
+
+.attendance-security p {
+    color: #6b7280;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* FOOTER */
+
+.attendance-footer {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .student-attendance-page {
+        padding: 15px;
+    }
+
+    .attendance-mobile-card {
+        padding: 25px 20px;
+
+        border-radius: 12px;
+    }
+
+    .attendance-page-header h1 {
+        font-size: 24px;
+    }
+
+}
