@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Attendance QR</title>
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f9;color:#172033}.wrap{max-width:850px;margin:35px auto;padding:20px;text-align:center}.card{background:white;border-radius:15px;padding:28px;box-shadow:0 2px 14px #0001}.qr{width:300px;height:300px;margin:22px auto}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.stat{background:#f4f6f9;border-radius:10px;padding:15px}.stat b{display:block;font-size:24px;margin-top:5px}.green{color:#168a55}.red{color:#d9363e}.btn{padding:11px 18px;border:0;border-radius:8px;background:#17233f;color:#fff;text-decoration:none;cursor:pointer}form{display:inline}
+</style></head>
+<body><div class="wrap"><a href="/">← Dashboard</a><div class="card"><h1>Scan This QR Code</h1><h2>{{ session.subject }}</h2><p>{{ session.semester }} • {{ session.section }}</p>
+<img class="qr" src="{{ url_for('static', filename='qrcodes/' + token + '.png') }}" alt="Attendance QR">
+<div class="stats"><div class="stat">Total<b>{{ total_students }}</b></div><div class="stat">Present<b class="green">{{ present_count }}</b></div><div class="stat">Absent<b class="red">{{ absent_count }}</b></div><div class="stat">Attendance<b>{{ percentage }}%</b></div></div>
+<p>Valid until <b>{{ session.expires_at.strftime('%I:%M %p') }}</b></p>
+{% if session.is_active %}<form method="POST" action="{{ url_for('end_attendance', session_id=session.id) }}"><button class="btn">End Attendance Session</button></form>{% else %}<p class="red"><b>This session has ended.</b></p>{% endif %}
+</div></div></body></html>

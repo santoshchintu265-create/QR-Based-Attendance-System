@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Attendance Dashboard</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#172033}
+.layout{display:flex;min-height:100vh}.sidebar{width:245px;background:#10182b;color:#fff;padding:24px 16px;position:fixed;top:0;bottom:0}
+.brand{font-size:22px;font-weight:700;margin:8px 12px 32px}.brand span{display:inline-flex;background:#fff;color:#18213a;border-radius:10px;padding:8px;margin-right:8px;font-size:14px}
+.nav a{display:block;color:#d8deea;text-decoration:none;padding:13px 14px;border-radius:9px;margin:5px 0}.nav a:hover,.nav a.active{background:#263653;color:#fff}
+.main{margin-left:245px;padding:34px;width:calc(100% - 245px)}h1{margin:0 0 6px;font-size:34px}.sub{color:#70798b;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 12px rgba(0,0,0,.07)}.label{color:#6e7788;font-size:14px}.value{font-size:30px;font-weight:700;margin-top:8px}.green{color:#168a55}.red{color:#d9363e}.blue{color:#25458f}
+.section{margin-top:22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.section h2{margin:0}.btn{display:inline-block;background:#17233f;color:#fff;text-decoration:none;border:0;border-radius:8px;padding:11px 17px;cursor:pointer}.btn.secondary{background:#eef1f6;color:#18213a}
+.session{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.info strong{display:block;margin-top:5px}.expired{color:#d9363e}.active{color:#168a55}
+table{width:100%;border-collapse:collapse;background:#fff}.table-wrap{overflow:hidden;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.07)}th,td{padding:13px 15px;border-bottom:1px solid #e9ecf2;text-align:left}th{background:#243f88;color:#fff}tr:last-child td{border-bottom:0}
+@media(max-width:900px){.sidebar{width:190px}.main{margin-left:190px;width:calc(100% - 190px)}.cards,.session{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span>QR</span> QR Attendance</div>
+  <nav class="nav">
+    <a class="active" href="/">Dashboard</a>
+    <a href="/students">Students</a>
+    <a href="/start-attendance">Start Attendance</a>
+    <a href="/attendance">Attendance</a>
+    <a href="/reports">Reports</a>
+  </nav>
+</aside>
+
+<main class="main">
+  <h1>Attendance Dashboard</h1>
+  <div class="sub">Monitor attendance sessions, present students and absentees.</div>
+
+  <div class="cards">
+    <div class="card"><div class="label">Total Students</div><div class="value blue">{{ total_students }}</div></div>
+    <div class="card"><div class="label">Present</div><div class="value green">{{ present_count }}</div></div>
+    <div class="card"><div class="label">Absent</div><div class="value red">{{ absent_count }}</div></div>
+    <div class="card"><div class="label">Attendance</div><div class="value">{{ percentage }}%</div></div>
+  </div>
+
+  {% if session %}
+  <div class="card section">
+    <div class="section-head">
+      <div>
+        <h2>Current Attendance Session</h2>
+        <div class="sub" style="margin:5px 0 0">{{ session.subject }}</div>
+      </div>
+      <div>
+        {% if session.is_active %}
+          <span class="active"><b>● Active</b></span>
+        {% else %}
+          <span class="expired"><b>● Ended</b></span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="session">
+      <div class="info">Semester<strong>{{ session.semester }}</strong></div>
+      <div class="info">Section<strong>{{ session.section }}</strong></div>
+      <div class="info">Started<strong>{{ session.created_at.strftime('%d %b %Y, %I:%M %p') }}</strong></div>
+      <div class="info">Expires<strong>{{ session.expires_at.strftime('%I:%M %p') }}</strong></div>
+    </div>
+    <div style="margin-top:18px">
+      <a class="btn" href="{{ url_for('show_qr', token=session.session_token) }}">View QR</a>
+      {% if session.is_active %}
+      <form method="POST" action="{{ url_for('end_attendance', session_id=session.id) }}" style="display:inline">
+        <button class="btn secondary" type="submit">End Attendance</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="section">
+    <div class="section-head"><h2>Present Students ({{ present_count }})</h2><a class="btn" href="/start-attendance">Start New Session</a></div>
+    <div class="table-wrap"><table><thead><tr><th>Name</th><th>Roll Number</th><th>Status</th></tr></thead>
+    <tbody>
+    {% for student in present_students %}
+      <tr><td>{{ student.name }}</td><td>{{ student.roll_number }}</td><td class="green"><b>Present</b></td></tr>
+    {% else %}
+      <tr><td colspan="3">No students are present in the current session.</td></tr>
+    {% endfor %}
+    </tbody></table></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>Absent Students ({{ absent_count }})</h2></div>
+    <div class="table-wrap"><table><thead><tr><th>Name</th><th>Roll Number</th><th>Status</th></tr></thead>
+    <tbody>
+    {% for student in absent_students %}
+      <tr><td>{{ student.name }}</td><td>{{ student.roll_number }}</td><td class="red"><b>Absent</b></td></tr>
+    {% else %}
+      <tr><td colspan="3">No absent students.</td></tr>
+    {% endfor %}
+    </tbody></table></div>
+  </div>
+</main>
+</div>
+</body>
+</html>

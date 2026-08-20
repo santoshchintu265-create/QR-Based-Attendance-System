@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Mark Attendance</title>
+<style>body{margin:0;font-family:Arial;background:#f4f6f9;color:#172033}.card{max-width:450px;margin:60px auto;background:#fff;padding:30px;border-radius:14px;box-shadow:0 2px 14px #0001}input{width:100%;padding:13px;border:1px solid #d9dee8;border-radius:8px;margin:8px 0 18px;box-sizing:border-box}button{width:100%;padding:13px;background:#17233f;color:white;border:0;border-radius:8px;font-weight:700}.ok{color:#168a55}.bad{color:#d9363e}</style></head>
+<body><div class="card"><h1>Mark Attendance</h1><h2>{{ session.subject }}</h2><p>{{ session.semester }} • {{ session.section }}</p>{% if session.is_active %}
+<form method="POST"><label>Roll Number</label><input name="roll_number" placeholder="Enter your roll number" required><button>Mark Attendance</button></form>
+{% else %}<p class="bad"><b>This attendance session has ended.</b></p>{% endif %}</div></body></html>

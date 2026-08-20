@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Start Attendance</title>
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f9;color:#172033}.wrap{max-width:950px;margin:50px auto;padding:0 20px}.card{background:white;border-radius:14px;padding:30px;box-shadow:0 2px 14px #0001}h1{margin-bottom:8px}.sub{color:#70798b;margin-bottom:28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}label{display:block;font-weight:600;margin-bottom:8px}input,select{width:100%;padding:13px;border:1px solid #d9dee8;border-radius:8px;font-size:15px}button{margin-top:25px;background:#17233f;color:#fff;border:0;border-radius:8px;padding:13px 22px;font-weight:700;cursor:pointer}.hint{margin-top:24px;background:#f0f3f8;padding:16px;border-radius:10px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap"><a href="/">← Dashboard</a><h1>Start Attendance</h1><div class="sub">Create an attendance session and generate one QR code.</div>
+<div class="card"><h2>Create Attendance Session</h2><form method="POST" action="/start-attendance">
+<div class="grid">
+<div><label>Subject</label><select name="subject" required><option value="">Select subject</option><option>Database Management System</option><option>Python Programming</option><option>Computer Networks</option><option>Data Structures and Algorithms</option></select></div>
+<div><label>Semester</label><select name="semester" required><option value="">Select semester</option><option>1st Semester</option><option>2nd Semester</option><option>3rd Semester</option><option>4th Semester</option><option>5th Semester</option><option>6th Semester</option></select></div>
+<div><label>Section</label><select name="section" required><option value="">Select section</option><option>Section A</option><option>Section B</option><option>Section C</option></select></div>
+<div><label>QR Validity</label><select name="validity" required><option value="2">2 minutes</option><option value="5" selected>5 minutes</option><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="30">30 minutes</option></select></div>
+</div>
+<div class="hint"><b>How it works</b><br>Start the session to generate a unique QR code. Students scan the QR with their phones and submit their roll number to record attendance.</div>
+<button type="submit">Start Attendance</button>
+</form></div></div></body></html>
