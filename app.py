@@ -21,7 +21,7 @@ db = SQLAlchemy(app)
 # IMPORTANT:
 # Replace this with the IPv4 address of the computer running Flask.
 # Your previous screenshot showed 10.199.217.216.
-SERVER_IP = "10.199.217.216"
+SERVER_IP = "10.199.217.212"
 SERVER_PORT = 5000
 
 
@@ -32,18 +32,58 @@ SERVER_PORT = 5000
 class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
-    name = db.Column(db.String(100), nullable=False)
-    roll_number = db.Column(db.String(50), unique=True, nullable=False)
+    name = db.Column(
+        db.String(100),
+        nullable=False
+    )
 
-    email = db.Column(db.String(120))
-    phone = db.Column(db.String(20))
-    department = db.Column(db.String(100))
-    semester = db.Column(db.String(50))
+    roll_number = db.Column(
+        db.String(50),
+        unique=True,
+        nullable=False
+    )
+
+    email = db.Column(
+        db.String(120),
+        unique=True,
+        nullable=True
+    )
+
+    phone = db.Column(
+        db.String(20),
+        nullable=True
+    )
+
+    department = db.Column(
+        db.String(100),
+        nullable=True
+    )
+
+    semester = db.Column(
+        db.String(50),
+        nullable=True
+    )
+
+    section = db.Column(
+        db.String(50),
+        nullable=True
+    )
+
+    academic_year = db.Column(
+        db.String(50),
+        nullable=True
+    )
 
     status = db.Column(
         db.String(20),
         nullable=False,
         default="Active"
+    )
+
+    attendances = db.relationship(
+        "Attendance",
+        backref="student",
+        lazy=True
     )
 
     attendances = db.relationship(
@@ -229,10 +269,7 @@ def ensure_session_active(session):
 
 
 def make_scan_url(token):
-    return (
-        f"http://{SERVER_IP}:{SERVER_PORT}"
-        f"/scan/{token}"
-    )
+    return f"http://10.199.217.212:5000/scan/{token}"
 
 
 # ============================================================
@@ -318,70 +355,6 @@ def students():
     )
 
 
-@app.route(
-    "/add-student",
-    methods=["GET", "POST"]
-)
-def add_student():
-
-    if request.method == "POST":
-
-        name = request.form.get("name", "").strip()
-        roll_number = request.form.get(
-            "roll_number",
-            ""
-        ).strip()
-
-        email = request.form.get(
-            "email",
-            ""
-        ).strip()
-
-        phone = request.form.get(
-            "phone",
-            ""
-        ).strip()
-
-        department = request.form.get(
-            "department",
-            ""
-        ).strip()
-
-        semester = request.form.get(
-            "semester",
-            ""
-        ).strip()
-
-        if not name or not roll_number:
-            return "Name and roll number are required.", 400
-
-        existing = Student.query.filter_by(
-            roll_number=roll_number
-        ).first()
-
-        if existing:
-            return "Roll number already exists.", 409
-
-        student = Student(
-            name=name,
-            roll_number=roll_number,
-            email=email,
-            phone=phone,
-            department=department,
-            semester=semester,
-            status="Active"
-        )
-
-        db.session.add(student)
-        db.session.commit()
-
-        return redirect(
-            url_for("students")
-        )
-
-    return render_template(
-        "add_student.html"
-    )
 
 
 @app.route(
@@ -614,10 +587,7 @@ def show_qr(token):
 # Student Scan
 # ============================================================
 
-@app.route(
-    "/scan/<token>",
-    methods=["GET", "POST"]
-)
+@app.route("/scan/<token>", methods=["GET", "POST"])
 def scan(token):
 
     session = AttendanceSession.query.filter_by(
@@ -706,6 +676,48 @@ def scan(token):
         percentage=stats["percentage"]
     )
 
+# ============================================================
+# Live Attendance Status
+# ============================================================
+
+@app.route("/api/attendance-status/<token>")
+def attendance_status(token):
+
+    session = AttendanceSession.query.filter_by(
+        session_token=token
+    ).first()
+
+    if not session:
+        return {
+            "error": "Invalid session"
+        }, 404
+
+    total = Student.query.filter_by(
+        semester=session.semester,
+        section=session.section,
+        status="Active"
+    ).count()
+
+    present = Attendance.query.filter_by(
+        session_id=session.id,
+        status="Present"
+    ).count()
+
+    absent = max(total - present, 0)
+
+    percentage = (
+        round((present / total) * 100, 1)
+        if total > 0
+        else 0
+    )
+
+    return {
+        "total": total,
+        "present": present,
+        "absent": absent,
+        "percentage": percentage,
+        "is_active": session.is_active
+    }
 
 # ============================================================
 # Attendance Page

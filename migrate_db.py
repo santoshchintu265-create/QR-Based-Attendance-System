@@ -148,6 +148,34 @@ if "semester" not in student_columns:
         """
     )
 
+if "section" not in student_columns:
+    print("Adding student.section...")
+    cursor.execute(
+        """
+        ALTER TABLE student
+        ADD COLUMN section VARCHAR(50)
+        """
+    )
+
+
+if "academic_year" not in student_columns:
+    print("Adding student.academic_year...")
+    cursor.execute(
+        """
+        ALTER TABLE student
+        ADD COLUMN academic_year VARCHAR(50)
+        """
+    )
+
+
+if "academic_year" not in student_columns:
+    print("Adding student.academic_year...")
+    cursor.execute(
+        """
+        ALTER TABLE student
+        ADD COLUMN academic_year VARCHAR(50)
+        """
+    )
 
 if "status" not in student_columns:
     print("Adding student.status...")

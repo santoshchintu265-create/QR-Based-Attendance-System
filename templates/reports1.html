@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="/qr-codes" class="nav-item">
+                <span>▦</span>
+                Start Attendance
+            </a>
+
+            <a href="/attendance" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="/reports" class="nav-item active">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="/login" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="dashboard-label">
+                    ATTENDANCE ANALYTICS
+                </p>
+
+                <h1>Reports</h1>
+
+                <p class="dashboard-subtitle">
+                    Analyze attendance performance and generate reports.
+                </p>
+
+            </div>
+
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- FILTERS -->
+
+        <section class="reports-filters">
+
+
+            <div class="report-filter">
+
+                <label for="from-date">
+                    From Date
+                </label>
+
+                <input
+                    type="date"
+                    id="from-date"
+                    value="2026-08-01"
+                >
+
+            </div>
+
+
+            <div class="report-filter">
+
+                <label for="to-date">
+                    To Date
+                </label>
+
+                <input
+                    type="date"
+                    id="to-date"
+                    value="2026-08-19"
+                >
+
+            </div>
+
+
+            <div class="report-filter">
+
+                <label for="report-subject">
+                    Subject
+                </label>
+
+                <select id="report-subject">
+
+                    <option>
+                        All Subjects
+                    </option>
+
+                    <option>
+                        Data Structures & Algorithms
+                    </option>
+
+                    <option>
+                        Database Management System
+                    </option>
+
+                    <option>
+                        Python Programming
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="generate-report-btn"
+            >
+                Generate Report
+            </button>
+
+        </section>
+
+
+        <!-- OVERVIEW -->
+
+        <section class="report-overview">
+
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Students
+                    </span>
+
+                    <strong>
+                        120
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Present
+                    </span>
+
+                    <strong>
+                        2,184
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon">
+                    %
+                </div>
+
+                <div>
+
+                    <span>
+                        Average Attendance
+                    </span>
+
+                    <strong>
+                        82%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <span>
+                        Low Attendance
+                    </span>
+
+                    <strong>
+                        14
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORT GRID -->
+
+        <section class="reports-grid">
+
+
+            <!-- SUBJECT PERFORMANCE -->
+
+            <div class="report-card">
+
+                <div class="report-card-header">
+
+                    <div>
+
+                        <h2>
+                            Subject-wise Attendance
+                        </h2>
+
+                        <p>
+                            Average attendance by subject
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="subject-report">
+
+
+                    <div class="subject-row">
+
+                        <div class="subject-name">
+
+                            <strong>
+                                Data Structures
+                            </strong>
+
+                            <span>
+                                24 classes
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-container">
+
+                            <div
+                                class="progress-bar"
+                                style="width: 88%;"
+                            ></div>
+
+                        </div>
+
+
+                        <strong class="percentage">
+                            88%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="subject-row">
+
+                        <div class="subject-name">
+
+                            <strong>
+                                DBMS
+                            </strong>
+
+                            <span>
+                                22 classes
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-container">
+
+                            <div
+                                class="progress-bar"
+                                style="width: 82%;"
+                            ></div>
+
+                        </div>
+
+
+                        <strong class="percentage">
+                            82%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="subject-row">
+
+                        <div class="subject-name">
+
+                            <strong>
+                                Python
+                            </strong>
+
+                            <span>
+                                20 classes
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-container">
+
+                            <div
+                                class="progress-bar"
+                                style="width: 91%;"
+                            ></div>
+
+                        </div>
+
+
+                        <strong class="percentage">
+                            91%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="subject-row">
+
+                        <div class="subject-name">
+
+                            <strong>
+                                Operating Systems
+                            </strong>
+
+                            <span>
+                                18 classes
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-container">
+
+                            <div
+                                class="progress-bar"
+                                style="width: 74%;"
+                            ></div>
+
+                        </div>
+
+
+                        <strong class="percentage">
+                            74%
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ATTENDANCE DISTRIBUTION -->
+
+            <div class="report-card">
+
+                <div class="report-card-header">
+
+                    <div>
+
+                        <h2>
+                            Attendance Distribution
+                        </h2>
+
+                        <p>
+                            Student attendance levels
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="distribution">
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-number">
+                            78
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Excellent
+                            </strong>
+
+                            <span>
+                                90% and above
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-number">
+                            28
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Good
+                            </strong>
+
+                            <span>
+                                75% – 89%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-item">
+
+                        <div class="distribution-number">
+                            14
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Low
+                            </strong>
+
+                            <span>
+                                Below 75%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOW ATTENDANCE -->
+
+        <section class="report-card low-attendance-card">
+
+
+            <div class="report-card-header">
+
+                <div>
+
+                    <h2>
+                        Students with Low Attendance
+                    </h2>
+
+                    <p>
+                        Students below the 75% attendance threshold
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="export-btn"
+                >
+                    ↓ Export
+                </button>
+
+            </div>
+
+
+            <div class="low-attendance-table-wrapper">
+
+                <table class="low-attendance-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+                            <th>Roll Number</th>
+                            <th>Classes</th>
+                            <th>Present</th>
+                            <th>Attendance</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Arjun R
+                                </strong>
+                            </td>
+
+                            <td>
+                                CS003
+                            </td>
+
+                            <td>
+                                24
+                            </td>
+
+                            <td>
+                                17
+                            </td>
+
+                            <td>
+
+                                <span class="low-percentage">
+                                    71%
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Kiran P
+                                </strong>
+                            </td>
+
+                            <td>
+                                CS017
+                            </td>
+
+                            <td>
+                                22
+                            </td>
+
+                            <td>
+                                15
+                            </td>
+
+                            <td>
+
+                                <span class="low-percentage">
+                                    68%
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Manoj S
+                                </strong>
+                            </td>
+
+                            <td>
+                                CS024
+                            </td>
+
+                            <td>
+                                20
+                            </td>
+
+                            <td>
+                                14
+                            </td>
+
+                            <td>
+
+                                <span class="low-percentage">
+                                    70%
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="/qr-codes" class="nav-item">
+                <span>▦</span>
+                Start Attendance
+            </a>
+
+            <a href="/attendance" class="nav-item active">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="/reports" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="/login" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="dashboard-label">
+                    ATTENDANCE MANAGEMENT
+                </p>
+
+                <h1>Attendance</h1>
+
+                <p class="dashboard-subtitle">
+                    View and manage attendance records.
+                </p>
+
+            </div>
+
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- FILTERS -->
+
+        <section class="attendance-filters">
+
+
+            <div class="attendance-filter-field">
+
+                <label for="date">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                    value="2026-08-19"
+                >
+
+            </div>
+
+
+            <div class="attendance-filter-field">
+
+                <label for="subject">
+                    Subject
+                </label>
+
+                <select id="subject">
+
+                    <option>
+                        All Subjects
+                    </option>
+
+                    <option>
+                        Data Structures & Algorithms
+                    </option>
+
+                    <option>
+                        Database Management System
+                    </option>
+
+                    <option>
+                        Python Programming
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="attendance-filter-field">
+
+                <label for="semester">
+                    Semester
+                </label>
+
+                <select id="semester">
+
+                    <option>
+                        All Semesters
+                    </option>
+
+                    <option>
+                        5th Semester
+                    </option>
+
+                    <option>
+                        4th Semester
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+            >
+                Apply Filters
+            </button>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <section class="attendance-summary">
+
+
+            <div class="attendance-summary-card">
+
+                <span>
+                    Total Students
+                </span>
+
+                <strong>
+                    120
+                </strong>
+
+            </div>
+
+
+            <div class="attendance-summary-card present-summary">
+
+                <span>
+                    Present
+                </span>
+
+                <strong>
+                    96
+                </strong>
+
+            </div>
+
+
+            <div class="attendance-summary-card absent-summary">
+
+                <span>
+                    Absent
+                </span>
+
+                <strong>
+                    24
+                </strong>
+
+            </div>
+
+
+            <div class="attendance-summary-card">
+
+                <span>
+                    Attendance Rate
+                </span>
+
+                <strong>
+                    80%
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATTENDANCE TABLE -->
+
+        <section class="attendance-record-card">
+
+
+            <div class="attendance-record-header">
+
+                <div>
+
+                    <h2>
+                        Attendance Records
+                    </h2>
+
+                    <p>
+                        August 19, 2026
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="export-btn"
+                >
+                    ↓ Export
+                </button>
+
+            </div>
+
+
+            <div class="attendance-record-wrapper">
+
+                <table class="attendance-record-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+                            <th>Roll Number</th>
+                            <th>Subject</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Attendance %</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <!-- STUDENT 1 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="attendance-student">
+
+                                    <div class="student-avatar">
+                                        RK
+                                    </div>
+
+                                    <strong>
+                                        Rahul Kumar
+                                    </strong>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                CS001
+                            </td>
+
+                            <td>
+                                DSA
+                            </td>
+
+                            <td>
+                                09:02 AM
+                            </td>
+
+                            <td>
+
+                                <span class="attendance-status present">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <strong>
+                                    92%
+                                </strong>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STUDENT 2 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="attendance-student">
+
+                                    <div class="student-avatar">
+                                        PS
+                                    </div>
+
+                                    <strong>
+                                        Priya Sharma
+                                    </strong>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                CS002
+                            </td>
+
+                            <td>
+                                DSA
+                            </td>
+
+                            <td>
+                                09:05 AM
+                            </td>
+
+                            <td>
+
+                                <span class="attendance-status present">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <strong>
+                                    88%
+                                </strong>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STUDENT 3 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="attendance-student">
+
+                                    <div class="student-avatar">
+                                        AR
+                                    </div>
+
+                                    <strong>
+                                        Arjun R
+                                    </strong>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                CS003
+                            </td>
+
+                            <td>
+                                DSA
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+
+                                <span class="attendance-status absent">
+                                    Absent
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <strong>
+                                    76%
+                                </strong>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- STUDENT 4 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="attendance-student">
+
+                                    <div class="student-avatar">
+                                        SM
+                                    </div>
+
+                                    <strong>
+                                        Sneha M
+                                    </strong>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                CS004
+                            </td>
+
+                            <td>
+                                DSA
+                            </td>
+
+                            <td>
+                                09:11 AM
+                            </td>
+
+                            <td>
+
+                                <span class="attendance-status present">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <strong>
+                                    95%
+                                </strong>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="attendance-pagination">
+
+                <span>
+                    Showing 4 of 120 students
+                </span>
+
+
+                <div>
+
+                    <button type="button">
+                        ‹
+                    </button>
+
+                    <button
+                        type="button"
+                        class="active-page"
+                    >
+                        1
+                    </button>
+
+                    <button type="button">
+                        2
+                    </button>
+
+                    <button type="button">
+                        3
+                    </button>
+
+                    <button type="button">
+                        ›
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

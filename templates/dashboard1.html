@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-icon">QR</div>
+            <span>QR Attendance</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-item active">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="/students" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="/qr-codes" class="nav-item">
+                <span>▦</span>
+                Start Attendance
+            </a>
+
+            <a href="/attendance" class="nav-item">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="/reports" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="/logout" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="dashboard-label">
+                    ATTENDANCE MANAGEMENT
+                </p>
+
+                <h1>Dashboard</h1>
+
+                <p class="dashboard-subtitle">
+                    Welcome back! Here's today's attendance overview.
+                </p>
+
+            </div>
+
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STAT CARDS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+                    <p>Total Students</p>
+                    <h2>120</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <p>Present Today</p>
+                    <h2>96</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✕
+                </div>
+
+                <div>
+                    <p>Absent Today</p>
+                    <h2>24</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    %
+                </div>
+
+                <div>
+                    <p>Attendance Rate</p>
+                    <h2>80%</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT GRID -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- RECENT ATTENDANCE -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Recent Attendance</h2>
+
+                        <p>
+                            Latest attendance records
+                        </p>
+                    </div>
+
+                    <a href="/attendance">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="attendance-table">
+
+                    <div class="table-row table-heading">
+
+                        <span>Student</span>
+                        <span>Roll No.</span>
+                        <span>Time</span>
+                        <span>Status</span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span class="student-name">
+                            Rahul Kumar
+                        </span>
+
+                        <span>
+                            CS001
+                        </span>
+
+                        <span>
+                            09:02 AM
+                        </span>
+
+                        <span class="status present">
+                            Present
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span class="student-name">
+                            Priya Sharma
+                        </span>
+
+                        <span>
+                            CS002
+                        </span>
+
+                        <span>
+                            09:05 AM
+                        </span>
+
+                        <span class="status present">
+                            Present
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span class="student-name">
+                            Arjun R
+                        </span>
+
+                        <span>
+                            CS003
+                        </span>
+
+                        <span>
+                            --
+                        </span>
+
+                        <span class="status absent">
+                            Absent
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span class="student-name">
+                            Sneha M
+                        </span>
+
+                        <span>
+                            CS004
+                        </span>
+
+                        <span>
+                            09:11 AM
+                        </span>
+
+                        <span class="status present">
+                            Present
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Quick Actions</h2>
+
+                        <p>
+                            Manage attendance quickly
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <!-- START ATTENDANCE -->
+
+                    <a href="/qr-codes" class="quick-action">
+
+                        <div class="quick-icon">
+                            📷
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Start Attendance
+                            </strong>
+
+                            <span>
+                                Generate attendance QR
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- ADD STUDENT -->
+
+                    <a href="/add-student" class="quick-action">
+
+                        <div class="quick-icon">
+                            👨‍🎓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Add Student
+                            </strong>
+
+                            <span>
+                                Register a new student
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- REPORTS -->
+
+                    <a href="/reports" class="quick-action">
+
+                        <div class="quick-icon">
+                            📊
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                View Reports
+                            </strong>
+
+                            <span>
+                                Check attendance reports
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

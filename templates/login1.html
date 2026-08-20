@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | QR Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <div class="login-container">
+
+            <!-- LOGO -->
+
+            <div class="login-logo">
+                <div class="login-logo-icon">
+                    QR
+                </div>
+
+                <span>
+                    QR Attendance
+                </span>
+            </div>
+
+
+            <!-- LOGIN CARD -->
+
+            <div class="login-card">
+
+                <div class="login-header">
+
+                    <p class="login-label">
+                        ATTENDANCE MANAGEMENT
+                    </p>
+
+                    <h1>
+                        Welcome Back
+                    </h1>
+
+                    <p>
+                        Sign in to manage attendance,
+                        students and reports.
+                    </p>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+
+                <form action="/login" method="POST">
+
+                    <div class="form-field">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    {% if error %}
+
+                    <p class="login-error">
+                        {{ error }}
+                    </p>
+
+                    {% endif %}
+
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+                        Login
+                    </button>
+
+                </form>
+
+
+                <!-- LOGIN INFO -->
+
+                <div class="login-info">
+
+                    <span>
+                        🔒
+                    </span>
+
+                    <p>
+                        Secure access for authorized
+                        attendance administrators.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BACK TO HOME -->
+
+            <a href="/" class="back-home">
+                ← Back to Home
+            </a>
+
+
+            <div class="login-footer">
+                QR Attendance System © 2026
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
